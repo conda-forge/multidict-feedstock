@@ -1,6 +1,6 @@
 {% set name = "multidict" %}
-{% set version = "4.7.5" %}
-{% set sha256 = "aee283c49601fa4c13adc64c09c978838a7e812f85377ae130a24d7198c0331e" %}
+{% set version = "5.0.1" %}
+{% set sha256 = "0b4d193cb6749f3d200b699bcce0a71946fb869284eb4e040f49283187105fc3" %}
 
 package:
   name: {{ name|lower }}
@@ -12,8 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [py2k]
 
 requirements:
@@ -38,7 +38,7 @@ about:
   home: http://github.com/aio-libs/multidict
   license: Apache 2.0
   license_file: LICENSE
-  summary: 'multidict implementation'
+  summary: multidict implementation
 
   description: |
     Multidicts are useful for working with HTTP headers, URL query args etc.

@@ -1,6 +1,6 @@
 {% set name = "multidict" %}
-{% set version = "6.0.2" %}
-{% set sha256 = "5ff3bd75f38e4c43f1f470f2df7a4d430b821c4ce22be384e1459cb57d6bb013" %}
+{% set version = "6.0.3" %}
+{% set sha256 = "2523a29006c034687eccd3ee70093a697129a3ffe8732535d3b2df6a4ecc279d" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [py2k]
 

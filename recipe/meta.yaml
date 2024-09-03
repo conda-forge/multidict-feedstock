@@ -9,7 +9,7 @@ source:
   sha256: f7e301075edaf50500f0b341543c41194d8df3ae5caf4702f2095f3ca73dd8da
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -18,6 +18,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - cython
     - python

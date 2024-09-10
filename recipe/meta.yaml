@@ -26,6 +26,7 @@ requirements:
     - setuptools >=40
   run:
     - python
+    - typing-extensions  # [py<311]
 
 test:
   source_files:

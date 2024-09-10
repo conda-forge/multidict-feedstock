@@ -1,4 +1,4 @@
-{% set version = "6.0.5" %}
+{% set version = "6.1.0" %}
 
 package:
   name: multidict
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/m/multidict/multidict-{{ version }}.tar.gz
-  sha256: f7e301075edaf50500f0b341543c41194d8df3ae5caf4702f2095f3ca73dd8da
+  sha256: 22ae2ebf9b0c69d206c003e2f6a914ea33f0a932d4aa16f236afc049d9958f4a
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -26,6 +26,7 @@ requirements:
     - setuptools >=40
   run:
     - python
+    - typing-extensions  # [py<311]
 
 test:
   source_files:

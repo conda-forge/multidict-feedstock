@@ -9,24 +9,31 @@ source:
   sha256: 22ae2ebf9b0c69d206c003e2f6a914ea33f0a932d4aa16f236afc049d9958f4a
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  number: 1
+  noarch: python   # [use_noarch]
+  track_features:
+    - multidict_no_compile  # [use_noarch]
+  script:
+    - export MULTIDICT_NO_EXTENSIONS=1   # [use_noarch]
+    - {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
+    - python                                 # [build_platform != target_platform and not use_noarch]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
     - cython
-    - python
+    - python >=3.8  # [use_noarch]
+    - python        # [not use_noarch]
     - pip
     - setuptools >=40
   run:
-    - python
-    - typing-extensions  # [py<311]
+    - python >=3.8  # [use_noarch]
+    - python        # [not use_noarch]
+    - typing-extensions  # [py<311 or use_noarch]
 
 test:
   source_files:
@@ -35,8 +42,8 @@ test:
     - pytest
     - pip
   commands:
-    - py.test tests --no-c-extensions  # [python_impl != "cpython"]
-    - py.test tests --c-extensions     # [python_impl == "cypthon"]
+    - py.test tests --no-c-extensions  # [use_noarch]
+    - py.test tests --c-extensions     # [not use_noarch]
     - pip check
 
 about:

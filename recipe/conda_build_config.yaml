@@ -2,3 +2,6 @@
 # uses NULL-to-int conversions that clang >14 errors on
 c_compiler_version:     # [osx]
   - 14                  # [osx]
+use_noarch:
+  - true    # [linux64]
+  - false

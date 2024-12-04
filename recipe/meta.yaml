@@ -9,7 +9,7 @@ source:
   sha256: 22ae2ebf9b0c69d206c003e2f6a914ea33f0a932d4aa16f236afc049d9958f4a
 
 build:
-  number: 1
+  number: 2
   noarch: python   # [use_noarch]
   track_features:
     - multidict_no_compile  # [use_noarch]
@@ -26,14 +26,14 @@ requirements:
     - {{ stdlib("c") }}
   host:
     - cython
-    - python >=3.8  # [use_noarch]
-    - python        # [not use_noarch]
+    - python {{ python_min }}  # [use_noarch]
+    - python                   # [not use_noarch]
     - pip
     - setuptools >=40
   run:
-    - python >=3.8  # [use_noarch]
-    - python        # [not use_noarch]
-    - typing-extensions  # [py<311 or use_noarch]
+    - python >={{ python_min }}  # [use_noarch]
+    - python                     # [not use_noarch]
+    - typing-extensions          # [py<311 or use_noarch]
 
 test:
   source_files:
@@ -41,6 +41,7 @@ test:
   requires:
     - pytest
     - pip
+    - python {{ python_min }}  # [use_noarch]
   commands:
     - py.test tests --no-c-extensions  # [use_noarch]
     - py.test tests --c-extensions     # [not use_noarch]

@@ -22,8 +22,8 @@ requirements:
     - python                                 # [not use_noarch and  build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [not use_noarch and  build_platform != target_platform]
     - cython                                 # [not use_noarch and  build_platform != target_platform]
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ compiler('c') }}                    # [not use_noarch]
+    - {{ stdlib("c") }}                      # [not use_noarch]
   host:
     - cython
     - python {{ python_min }}  # [use_noarch]

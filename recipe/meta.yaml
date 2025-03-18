@@ -1,16 +1,16 @@
-{% set version = "6.1.0" %}
+{% set version = "6.2.0" %}
 
 package:
   name: multidict
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/m/multidict/multidict-{{ version }}.tar.gz
-  sha256: 22ae2ebf9b0c69d206c003e2f6a914ea33f0a932d4aa16f236afc049d9958f4a
+  url: https://pypi.org/packages/source/m/multidict/multidict-{{ version }}.tar.gz
+  sha256: 0085b0afb2446e57050140240a8595846ed64d1cbd26cef936bfab3192c673b8
 
 build:
-  number: 2
-  noarch: python   # [use_noarch]
+  number: 0
+  noarch: python  # [use_noarch]
   track_features:
     - multidict_no_compile  # [use_noarch]
   script:
@@ -40,6 +40,7 @@ test:
     - tests
   requires:
     - pytest
+    - pytest-codspeed
     - pip
     - python {{ python_min }}  # [use_noarch]
   commands:

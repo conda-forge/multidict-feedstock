@@ -41,6 +41,7 @@ test:
   requires:
     - pytest
     - pytest-codspeed
+    - objgraph
     - pip
     - python {{ python_min }}  # [use_noarch]
   commands:

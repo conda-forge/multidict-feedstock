@@ -1,4 +1,4 @@
-{% set version = "6.4.3" %}
+{% set version = "6.4.4" %}
 
 package:
   name: multidict
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/m/multidict/multidict-{{ version }}.tar.gz
-  sha256: 3ada0b058c9f213c5f95ba301f922d402ac234f1111a7d8fd70f1b99f3c281ec
+  sha256: 69ee9e6ba214b5245031b76233dd95408a0fd57fdb019ddcc1ead4790932a8e8
 
 build:
   number: 0

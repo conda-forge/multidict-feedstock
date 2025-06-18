@@ -33,7 +33,7 @@ requirements:
   run:
     - python >={{ python_min }}  # [use_noarch]
     - python                     # [not use_noarch]
-    - typing-extensions          # [py<311 or use_noarch]
+    - typing-extensions >=4.1.0  # [py<311 or use_noarch]
 
 test:
   source_files:

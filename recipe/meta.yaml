@@ -43,6 +43,7 @@ test:
     - pytest-codspeed
     - objgraph
     - pip
+    - psutil
     - python {{ python_min }}  # [use_noarch]
   commands:
     - py.test tests --no-c-extensions  # [use_noarch]
